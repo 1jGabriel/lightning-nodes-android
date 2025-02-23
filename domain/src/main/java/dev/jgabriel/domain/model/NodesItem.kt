@@ -2,11 +2,11 @@ package dev.jgabriel.domain.model
 
 data class NodesItem(
     val alias: String,
-    val capacity: Long,
+    val capacity: String,
     val channels: Int,
-    val city: City,
-    val country: Country,
-    val firstSeen: Int,
+    val city: City?,
+    val country: Country?,
+    val firstSeen: String,
     val publicKey: String,
-    val updatedAt: Int
+    val updatedAt: String
 )

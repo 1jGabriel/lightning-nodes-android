@@ -2,6 +2,8 @@ package dev.jgabriel.lightningnodes.data.response
 
 import com.google.gson.annotations.SerializedName
 import dev.jgabriel.domain.model.NodesItem
+import dev.jgabriel.lightningnodes.data.util.fromSatToBtc
+import dev.jgabriel.lightningnodes.data.util.fromUnixToDate
 
 data class NodesItemResponse(
     @SerializedName("alias")
@@ -11,24 +13,24 @@ data class NodesItemResponse(
     @SerializedName("channels")
     val channels: Int,
     @SerializedName("city")
-    val city: CityResponse,
+    val city: CityResponse?,
     @SerializedName("country")
-    val country: CountryResponse,
+    val country: CountryResponse?,
     @SerializedName("firstSeen")
-    val firstSeen: Int,
+    val firstSeen: Long,
     @SerializedName("publicKey")
     val publicKey: String,
     @SerializedName("updatedAt")
-    val updatedAt: Int
+    val updatedAt: Long
 )
 
 fun NodesItemResponse.toDomain() = NodesItem(
     alias = alias,
-    capacity = capacity,
+    capacity = "${capacity.fromSatToBtc()} BTC",
     channels = channels,
-    city = city.toDomain(),
-    country = country.toDomain(),
-    firstSeen = firstSeen,
+    city = city?.toDomain(),
+    country = country?.toDomain(),
+    firstSeen = firstSeen.fromUnixToDate(),
     publicKey = publicKey,
-    updatedAt = updatedAt
+    updatedAt = updatedAt.fromUnixToDate(),
 )

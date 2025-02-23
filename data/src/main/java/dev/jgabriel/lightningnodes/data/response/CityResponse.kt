@@ -20,12 +20,16 @@ data class CityResponse(
     val ru: String?
 )
 
-fun CityResponse.toDomain() = City(
-    de = de,
-    en = en,
-    es = es,
-    fr = fr,
-    ja = ja,
-    ptBR = ptBR,
-    ru = ru,
-)
+fun CityResponse?.toDomain() = this?.let {
+    City(
+        de = de,
+        en = en,
+        es = es,
+        fr = fr,
+        ja = ja,
+        ptBR = ptBR,
+        ru = ru,
+    )
+
+}
+
