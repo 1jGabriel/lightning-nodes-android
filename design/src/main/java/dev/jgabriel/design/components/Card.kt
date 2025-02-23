@@ -26,6 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import dev.jgabriel.design.R
@@ -39,23 +40,24 @@ fun LightningCard(
     location: String,
     publicKey: String,
     firstSeen: String,
-    updatedAt: String
+    updatedAt: String,
+    isExpanded: Boolean = false,
 ) {
-    var expanded by rememberSaveable { mutableStateOf(false) }
+    var expanded by rememberSaveable { mutableStateOf(isExpanded) }
 
     Card(
         modifier = Modifier
             .padding(16.dp)
+            .clickable {
+                expanded = !expanded
+            }
             .fillMaxWidth(),
         shape = ShapeDefaults.Medium,
     ) {
         Row(
             Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
-                .clickable {
-                    expanded = !expanded
-                },
+                .padding(8.dp),
             horizontalArrangement = Arrangement.spacedBy(2.dp)
         ) {
             Text(
@@ -156,6 +158,23 @@ fun LightningCardPreview() {
             publicKey = "12-0234i12094u1nfas-0i341298301",
             firstSeen = "02/01/2019 16:13",
             updatedAt = "23/02/2025 20:07"
+        )
+    }
+}
+
+@Preview
+@Composable
+fun LightningCardExpandedPreview() {
+    LightningNodesTheme {
+        LightningCard(
+            alias = "ACINQ",
+            capacity = "5584.0092912 BTC",
+            channels = "2377",
+            location = "Nova York, EUA",
+            publicKey = "12-0234i12094u1nfas-0i341298301",
+            firstSeen = "02/01/2019 16:13",
+            updatedAt = "23/02/2025 20:07",
+            isExpanded = true
         )
     }
 }
