@@ -6,11 +6,13 @@ import dev.jgabriel.lightningnodes.data.client.provideLoggingInterceptor
 import dev.jgabriel.lightningnodes.data.client.provideOkHttpClient
 import dev.jgabriel.lightningnodes.data.client.provideRetrofit
 import dev.jgabriel.lightningnodes.data.repository.LightningNodesRepositoryImpl
+import dev.jgabriel.presentation.LightningNodesViewModel
 import org.koin.core.context.loadKoinModules
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 fun injectModules() {
-    loadKoinModules(listOf(networkModule, dataModule, domainModule))
+    loadKoinModules(listOf(networkModule, dataModule, domainModule, presentationModule))
 }
 
 private val networkModule = module {
@@ -24,5 +26,9 @@ private val dataModule = module {
 }
 
 private val domainModule = module {
-    single<LightningNodesRepository> { LightningNodesRepositoryImpl(get()) }
+    single<LightningNodesRepository> { LightningNodesRepositoryImpl(api = get()) }
+}
+
+private val presentationModule = module {
+    viewModel { LightningNodesViewModel(lightningNodesRepository = get()) }
 }
