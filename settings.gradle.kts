@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Lightning Nodes"
 include(":app")
+include(":data")
