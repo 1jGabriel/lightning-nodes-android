@@ -15,9 +15,14 @@ inline fun <reified T> handleApi(
         errorHandling?.invoke(throwable) ?: throwable as T
     } ?: throw Exception()
 
+
+/*
+* solution from
+* https://stackoverflow.com/questions/51482169/how-to-parse-unix-timestamp-to-date-string-in-kotlin
+* */
 fun Long.fromUnixToDate(): String {
     val instant = Instant.ofEpochSecond(this)
-    val dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
+    val dateTime = LocalDateTime.ofInstant(instant, ZoneId.of("America/Sao_Paulo"))
     val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")
     return dateTime.format(formatter)
 }
