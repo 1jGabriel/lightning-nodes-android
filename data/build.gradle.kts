@@ -35,6 +35,7 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
+    implementation(project(":domain"))
     implementation(libs.retrofit)
     implementation(libs.retrofit.gsonConverter)
     implementation(libs.okhttp.loggingInterceptor)

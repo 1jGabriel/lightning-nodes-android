@@ -1,9 +1,9 @@
 package dev.jgabriel.lightningnodes.data.response
 
-
 import com.google.gson.annotations.SerializedName
+import dev.jgabriel.domain.model.NodesItem
 
-data class NodesResponseItemResponse(
+data class NodesItemResponse(
     @SerializedName("alias")
     val alias: String,
     @SerializedName("capacity")
@@ -20,4 +20,15 @@ data class NodesResponseItemResponse(
     val publicKey: String,
     @SerializedName("updatedAt")
     val updatedAt: Int
+)
+
+fun NodesItemResponse.toDomain() = NodesItem(
+    alias = alias,
+    capacity = capacity,
+    channels = channels,
+    city = city.toDomain(),
+    country = country.toDomain(),
+    firstSeen = firstSeen,
+    publicKey = publicKey,
+    updatedAt = updatedAt
 )

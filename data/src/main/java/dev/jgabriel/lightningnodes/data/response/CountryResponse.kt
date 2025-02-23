@@ -2,6 +2,7 @@ package dev.jgabriel.lightningnodes.data.response
 
 
 import com.google.gson.annotations.SerializedName
+import dev.jgabriel.domain.model.Country
 
 data class CountryResponse(
     @SerializedName("de")
@@ -20,4 +21,15 @@ data class CountryResponse(
     val ru: String?,
     @SerializedName("zh-CN")
     val zhCN: String?
+)
+
+fun CountryResponse.toDomain() = Country(
+    de = de,
+    en = en,
+    es = es,
+    fr = fr,
+    ja = ja,
+    ptBR = ptBR,
+    ru = ru,
+    zhCN = zhCN
 )
