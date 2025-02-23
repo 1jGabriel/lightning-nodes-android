@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_title">Ops, tivemos um erro.</string>
+    <string name="error_description">Não foi possível carregar os dados, tente novamente clicando abaixo</string>
+    <string name="lightning_nodes_title">Lightning Nodes</string>
+</resources>

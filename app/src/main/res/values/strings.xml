@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">Lightning Nodes</string>
-    <string name="error_title">Ops, tivemos um erro.</string>
-    <string name="error_description">Não foi possível carregar os dados, tente novamente clicando abaixo</string>
-    <string name="lightning_nodes_title">Nós Lightning</string>
 </resources>

@@ -1,23 +1,23 @@
-package dev.jgabriel.presentation
+package dev.jgabriel.presentation.nodeslist
 
 import dev.jgabriel.domain.model.NodesItem
 
-data class LightningNodesState(
+data class NodesListState(
     val isLoading: Boolean = true,
     val nodesList: List<NodesItem> = emptyList(),
     val showError: Boolean = false,
 ) {
     fun showLoading() =
-        LightningNodesState(
+        NodesListState(
             isLoading = true, showError = false, nodesList = emptyList()
         )
 
     fun showError() =
-        LightningNodesState(
+        NodesListState(
             isLoading = false, showError = true, nodesList = emptyList()
         )
 
-    fun showList(nodesList: List<NodesItem>) = LightningNodesState(
+    fun showList(nodesList: List<NodesItem>) = NodesListState(
         isLoading = false,
         showError = false,
         nodesList = nodesList

@@ -1,4 +1,4 @@
-package dev.jgabriel.presentation
+package dev.jgabriel.presentation.nodeslist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class LightningNodesViewModel(
+class NodesListViewModel(
     private val lightningNodesRepository: LightningNodesRepository
 ) : ViewModel() {
-    private var _state = MutableStateFlow(LightningNodesState())
+    private var _state = MutableStateFlow(NodesListState())
     val state = _state
         .onStart {
             getLightningNodes()

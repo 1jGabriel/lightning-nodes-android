@@ -6,7 +6,7 @@ import dev.jgabriel.lightningnodes.data.client.provideLoggingInterceptor
 import dev.jgabriel.lightningnodes.data.client.provideOkHttpClient
 import dev.jgabriel.lightningnodes.data.client.provideRetrofit
 import dev.jgabriel.lightningnodes.data.repository.LightningNodesRepositoryImpl
-import dev.jgabriel.presentation.LightningNodesViewModel
+import dev.jgabriel.presentation.nodeslist.NodesListViewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
@@ -30,5 +30,5 @@ private val domainModule = module {
 }
 
 private val presentationModule = module {
-    viewModel { LightningNodesViewModel(lightningNodesRepository = get()) }
+    viewModel { NodesListViewModel(lightningNodesRepository = get()) }
 }
