@@ -9,4 +9,12 @@ data class NodesItem(
     val firstSeen: String,
     val publicKey: String,
     val updatedAt: String
-)
+) {
+    fun getLocation(): String = if (city != null) {
+        (city.ptBR ?: city.en) + ", " + getCountry()
+    } else {
+        getCountry()
+    }
+
+    private fun getCountry() = (country?.ptBR ?: country?.en).orEmpty()
+}
