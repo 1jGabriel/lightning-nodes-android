@@ -13,8 +13,8 @@ fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         .addConverterFactory(GsonConverterFactory.create()).build()
 }
 
-fun provideOkHttpClient(): OkHttpClient {
-    return OkHttpClient().newBuilder().addInterceptor(provideLoggingInterceptor()).build()
+fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+    return OkHttpClient().newBuilder().addInterceptor(loggingInterceptor).build()
 }
 
 fun provideLoggingInterceptor(): HttpLoggingInterceptor {

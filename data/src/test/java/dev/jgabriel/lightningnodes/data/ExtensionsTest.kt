@@ -7,8 +7,6 @@ import org.junit.Test
 
 internal class ExtensionsTest {
     // all the mock date for these test I get from: https://www.vultr.com/resources/unix-time-calculato
-
-
     @Test
     fun `fromUnixToDate - valid timestamp - returns formatted date`() {
         val timestamp = 1678886400L

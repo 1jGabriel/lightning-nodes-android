@@ -23,3 +23,4 @@ rootProject.name = "Lightning Nodes"
 include(":app")
 include(":data")
 include(":domain")
+include(":di")
