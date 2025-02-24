@@ -4,13 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
 import dev.jgabriel.design.theme.LightningNodesTheme
-import dev.jgabriel.presentation.nodeslist.NodesListScreen
+import dev.jgabriel.presentation.nodeslist.navigation.NodesListRoute
+import dev.jgabriel.presentation.nodeslist.navigation.nodesListGraph
 
 class MainActivity : ComponentActivity() {
 
@@ -19,13 +20,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LightningNodesTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(innerPadding)
+                val navController = rememberNavController()
+                Scaffold { innerPadding ->
+                    NavHost(
+                        modifier = Modifier.padding(innerPadding),
+                        navController = navController,
+                        startDestination = NodesListRoute.Graph
                     ) {
-                        NodesListScreen()
+                        nodesListGraph(navController)
                     }
                 }
             }
