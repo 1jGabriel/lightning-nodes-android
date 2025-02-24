@@ -24,8 +24,9 @@
 ## Did you make any trade-offs for this project? What would you have done differently with more time?
 
 - I didn't focus on the ui, I used the ready theme, given by android studio wizard theme, because on
-  our daily, we have a design system to follow, but I used my time to teste the main parts of
+  our daily, we have a design system to follow, but I used my time to test the main parts of
   application (ViewModel, states, or classes with some logic)
+- A good point in my opinion is that I'm using navigation compose, and single activity architecture
 
 ## What do you think is the weakest part of your project?
 
@@ -42,3 +43,5 @@
   layer, and domain layer doesn't have any dependency
 - There are some tests (LightningCardTest, ExtensionsTests, NodesListViewModel, NodesListState)
 - The LightningCardTest is using espresso and compose
+- MainActivity is the entrypoint of the application
+- modules.kt file contains all setup of dependency injection
