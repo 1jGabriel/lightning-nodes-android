@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.koin.compose.viewmodel)
 
     testImplementation(libs.junit)
+    testImplementation(libs.junit.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.navigation.compose)
@@ -66,5 +67,8 @@ dependencies {
 
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.navigation.compose)
+
+    testImplementation(libs.kotlin.coroutines.test)
+    testImplementation(libs.kotlin.coroutines.android)
 
 }
